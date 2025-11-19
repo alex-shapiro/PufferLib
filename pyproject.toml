@@ -18,7 +18,7 @@ classifiers=[
 ]
 dependencies = [
     "setuptools",
-    "numpy<2.0",
+    "numpy==1.",
 ]
 
 # Default Gym/Gymnasium/PettingZoo versions
@@ -263,8 +263,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.uv]
 no-build-isolation-package = ["torch"]
-
-# Declare conflicting extras that have incompatible dependencies
 conflicts = [
     [
         { extra = "avalon" },
