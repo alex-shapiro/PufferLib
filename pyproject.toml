@@ -301,3 +301,8 @@ conflicts = [
 
 [tool.setuptools]
 license-files = ["LICENSE"]
+
+[dependency-groups]
+dev = [
+    "ruff",
+]
