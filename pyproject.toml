@@ -2,7 +2,7 @@
 name = "pufferlib"
 version = "3.0.0"
 description = "Fast and sane reinforcement learning"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {text = "MIT"}
 authors = [{ name = "Joseph Suarez", email = "jsuarez@puffer.ai" }]
@@ -18,7 +18,6 @@ classifiers=[
 ]
 dependencies = [
     "setuptools",
-    "numpy==1.",
 ]
 
 # Default Gym/Gymnasium/PettingZoo versions
@@ -35,16 +34,16 @@ dependencies = [
 #'pettingzoo==1.24.1',
 [project.optional-dependencies]
 train = [
-    "torch",
-    "psutil",
+    "gpytorch",
+    "heavyball>=2.2.0",
+    "imageio",
+    "neptune",
     "nvidia-ml-py",
+    "psutil",
     "rich",
     "rich_argparse",
-    "imageio",
-    "gpytorch",
     "scikit-learn",
-    "heavyball>=2.2.0",
-    "neptune",
+    "torch",
     "wandb",
 ]
 
@@ -176,12 +175,13 @@ nethack = [
     'nle==0.9.1',
 ]
 
-nmmo = [
-    'gym==0.23',
-    'gymnasium==0.29.1',
-    'pettingzoo==1.24.1',
-    'nmmo>=2.1',
-]
+# not compatible with modern numpy
+# nmmo = [
+#     'gym==0.23',
+#     'gymnasium==0.29.1',
+#     'pettingzoo==1.24.1',
+#     'nmmo>=2.1',
+# ]
 
 open_spiel = [
     'gym==0.23',
@@ -205,13 +205,14 @@ pokemon_red = [
     'websockets',
 ]
 
-procgen = [
-    'gym==0.23',
-    'gymnasium==0.29.1',
-    'stable_baselines3==2.1.0',
-    'procgen-mirror==0.10.7', # Procgen mirror for 3.11 and 3.12 support
-    # Note: You need glfw==2.7 after installing for some torch versions
-]
+# not compatible with numpy 2
+# procgen = [
+#     'gym==0.23',
+#     'gymnasium==0.29.1',
+#     'stable_baselines3==2.1.0',
+#     'procgen-mirror==0.10.7', # Procgen mirror for 3.11 and 3.12 support
+#     # Note: You need glfw==2.7 after installing for some torch versions
+# ]
 
 #'smac': [
 #    'git+https://github.com/oxwhirl/smac.git',
@@ -291,7 +292,14 @@ conflicts = [
         { extra = "slimevolley" },
         { extra = "vizdoom" },
         { extra = "tribal-village" },
+    ],
+    [
+    { extra = "mujoco" },
+        { extra = "mujoco" },
+        { extra = "cleanrl" }
+
     ]
+
 ]
 
 [tool.setuptools]
