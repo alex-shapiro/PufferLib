@@ -5,7 +5,6 @@
 import glob
 import os
 import platform
-import shutil
 import tarfile
 import urllib.request
 import zipfile
@@ -17,7 +16,6 @@ from torch.utils import cpp_extension
 from torch.utils.cpp_extension import (
     CUDA_HOME,
     ROCM_HOME,
-    BuildExtension,
     CppExtension,
     CUDAExtension,
 )
