@@ -10,6 +10,9 @@ import urllib.request
 import zipfile
 
 import numpy
+
+# Prevent Conda from injecting garbage compile flags
+from distutils.sysconfig import get_config_vars
 from setuptools import Extension, find_namespace_packages, find_packages, setup
 from setuptools.command.build_ext import build_ext
 from torch.utils import cpp_extension
@@ -273,8 +276,6 @@ if not NO_TRAIN:
         ),
     ]
 
-# Prevent Conda from injecting garbage compile flags
-from distutils.sysconfig import get_config_vars
 
 cfg_vars = get_config_vars()
 for key in ("CC", "CXX", "LDSHARED"):
