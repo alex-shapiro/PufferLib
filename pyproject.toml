@@ -16,7 +16,10 @@ classifiers=[
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
 ]
-dynamic = ["dependencies"]
+dependencies = [
+    "setuptools",
+    "numpy<2.0",
+]
 
 # Default Gym/Gymnasium/PettingZoo versions
 # Gym:
@@ -31,6 +34,20 @@ dynamic = ["dependencies"]
 #'gymnasium==0.29.1',
 #'pettingzoo==1.24.1',
 [project.optional-dependencies]
+train = [
+    "torch",
+    "psutil",
+    "nvidia-ml-py",
+    "rich",
+    "rich_argparse",
+    "imageio",
+    "gpytorch",
+    "scikit-learn",
+    "heavyball>=2.2.0",
+    "neptune",
+    "wandb",
+]
+
 avalon = [
     'gymnasium==0.29.1',
     'avalon-rl==1.0.0',
@@ -50,7 +67,7 @@ box2d = [
 bsuite = [
     'gym==0.23',
     'gymnasium==0.29.1',
-    'bsuite==0.3.5',
+    'bsuite>=0.3.5',
 ]
 
 butterfly = [
@@ -110,16 +127,16 @@ magent = [
     #'magent2==0.3.2',
 ]
 
-metta = [
-    'gym==0.23',
-    'gymnasium==0.29.1',
-    'omegaconf',
-    'hydra-core',
-    'duckdb',
-    'raylib>=5.5.0',
-    'metta-common @ git+https://github.com/metta-ai/metta.git@main#subdirectory=common',
-    'metta-mettagrid @ git+https://github.com/metta-ai/metta.git@main#subdirectory=mettagrid',
-]
+# metta = [
+#     'gym==0.23',
+#     'gymnasium==0.29.1',
+#     'omegaconf',
+#     'hydra-core',
+#     'duckdb',
+#     'raylib>=5.5.0',
+#     'metta-common @ git+https://github.com/metta-ai/metta.git@main#subdirectory=common',
+#     'metta-mettagrid @ git+https://github.com/metta-ai/metta.git@main#subdirectory=mettagrid',
+# ]
 
 microrts = [
     'gym==0.23',
@@ -245,6 +262,94 @@ build-backend = "setuptools.build_meta"
 
 [tool.uv]
 no-build-isolation-package = ["torch"]
+
+# Declare conflicting extras that have incompatible dependencies
+conflicts = [
+    [
+        { extra = "avalon" },
+        { extra = "bsuite" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "butterfly" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "classic_control" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "crafter" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "dm_control" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "dm_lab" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "griddly" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "kinetix" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "magent" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "microrts" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "minigrid" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "minihack" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "nethack" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "nmmo" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "open_spiel" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "pokemon_red" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "procgen" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "slimevolley" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "tribal-village" },
+    ],
+    [
+        { extra = "avalon" },
+        { extra = "vizdoom" },
+    ],
+    [
+        { extra = "box2d" },
+        { extra = "magent" },
+    ],
+]
 
 [tool.setuptools]
 license-files = ["LICENSE"]
