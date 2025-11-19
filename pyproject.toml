@@ -67,7 +67,7 @@ box2d = [
 bsuite = [
     'gym==0.23',
     'gymnasium==0.29.1',
-    'bsuite>=0.3.5',
+    'bsuite==0.3.5',
 ]
 
 butterfly = [
@@ -220,11 +220,12 @@ procgen = [
 #    'git+https://github.com/Farama-Foundation/stable-retro.git',
 #]
 
-slimevolley = [
-    'gym==0.23',
-    'gymnasium==0.29.1',
-    'slimevolley==0.1.0',
-]
+# not found - is slimevolleygym correct?
+# slimevolley = [
+#     'gym==0.23',
+#     'gymnasium==0.29.1',
+#     'slimevolley==0.1.0',
+# ]
 
 vizdoom = [
     'gym==0.23',
@@ -267,88 +268,32 @@ no-build-isolation-package = ["torch"]
 conflicts = [
     [
         { extra = "avalon" },
-        { extra = "bsuite" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "butterfly" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "classic_control" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "crafter" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "dm_control" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "dm_lab" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "griddly" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "kinetix" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "magent" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "microrts" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "minigrid" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "minihack" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "nethack" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "nmmo" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "open_spiel" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "pokemon_red" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "procgen" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "slimevolley" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "tribal-village" },
-    ],
-    [
-        { extra = "avalon" },
-        { extra = "vizdoom" },
-    ],
-    [
+        { extra = "atari" },
         { extra = "box2d" },
+        { extra = "bsuite" },
+        { extra = "butterfly" },
+        { extra = "classic_control" },
+        { extra = "crafter" },
+        { extra = "craftax" },
+        { extra = "dm_control" },
+        { extra = "dm_lab" },
+        { extra = "griddly" },
+        { extra = "kinetix" },
         { extra = "magent" },
-    ],
+        { extra = "microrts" },
+        { extra = "minerl" },
+        { extra = "minigrid" },
+        { extra = "minihack" },
+        { extra = "mujoco" },
+        { extra = "nethack" },
+        { extra = "nmmo" },
+        { extra = "open_spiel" },
+        { extra = "pokemon_red" },
+        { extra = "procen" },
+        { extra = "slimevolley" },
+        { extra = "vizdoom" },
+        { extra = "tribal-village" },
+    ]
 ]
 
 [tool.setuptools]
