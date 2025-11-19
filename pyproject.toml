@@ -2,7 +2,7 @@
 name = "pufferlib"
 version = "3.0.0"
 description = "Fast and sane reinforcement learning"
-requires-python = ">=3.12"
+requires-python = ">=3.13,<3.14"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {text = "MIT"}
 authors = [{ name = "Joseph Suarez", email = "jsuarez@puffer.ai" }]
@@ -55,7 +55,7 @@ avalon = [
 atari = [
     'gymnasium[accept-rom-license]==0.29.1',
     'opencv-python==3.4.17.63',
-    'ale_py==0.9.0',
+    'ale_py==0.11.2',
 ]
 
 box2d = [
@@ -63,11 +63,12 @@ box2d = [
     'swig==4.1.1',
 ]
 
-bsuite = [
-    'gym==0.23',
-    'gymnasium==0.29.1',
-    'bsuite==0.3.5',
-]
+# requires outdated python
+# bsuite = [
+#     'gym==0.23',
+#     'gymnasium==0.29.1',
+#     'bsuite==0.3.5',
+# ]
 
 butterfly = [
     'gym==0.23',
@@ -104,12 +105,13 @@ dm_lab = [
     'dm_env==1.6',
 ]
 
-griddly = [
-    'gym==0.23',
-    'gymnasium==0.29.1',
-    'griddly==1.6.7',
-    'imageio',
-]
+# requires older python
+# griddly = [
+#     'gym==0.23',
+#     'gymnasium==0.29.1',
+#     'griddly==1.6.7',
+#     'imageio',
+# ]
 
 kinetix = [
     'gym==0.23',
@@ -236,7 +238,7 @@ vizdoom = [
 ]
 
 ray = [
-    'ray==2.23.0',
+    'ray>=2.23.0',
 ]
 
 tribal-village = [
