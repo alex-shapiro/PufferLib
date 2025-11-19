@@ -173,12 +173,12 @@ nethack = [
 ]
 
 # not compatible with modern numpy
-# nmmo = [
-#     'gym==0.23',
-#     'gymnasium==0.29.1',
-#     'pettingzoo==1.24.1',
-#     'nmmo>=2.1',
-# ]
+nmmo = [
+    'gym==0.23',
+    'gymnasium==0.29.1',
+    'pettingzoo==1.24.1',
+    'nmmo>=2.1',
+]
 
 open_spiel = [
     'gym==0.23',
